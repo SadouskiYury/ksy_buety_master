@@ -19,5 +19,7 @@ jobs:
           bundle exec rspec
 
       - name: Check bundle audit
+        env:
+          RAILS_ENV: test
         run: |
-          bundle audit check --update
+          bundle exec bundler-audit
