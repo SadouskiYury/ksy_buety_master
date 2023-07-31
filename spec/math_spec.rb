@@ -1,14 +1,16 @@
-require 'contrived_math'
+# frozen_string_literal: true
+
+require "contrived_math"
 
 RSpec.describe Math do
-  describe '#add' do
-    it 'adds two numbers' do
+  describe "#add" do
+    it "adds two numbers" do
       expect(ContrivedMath.add(1, 2)).to eq(3)
     end
   end
 
-  describe '#subtract' do
-    it 'subtracts two numbers' do
+  describe "#subtract" do
+    it "subtracts two numbers" do
       expect(ContrivedMath.subtract(2, 1)).to eq(1)
     end
   end
