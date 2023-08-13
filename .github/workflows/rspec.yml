@@ -1,15 +1,23 @@
-name: Run RSpec tests
-on: [push, pull_request]
+name: CI checks
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $protected-branches ]
 jobs:
-  run-rspec-tests:
+  run-rubocop-rspec-audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: CI
         uses: ruby/setup-ruby@v1
         with:
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
+        env:
+          RUBY_YJIT_ENABLE: 1  
+          RAILS_ENV: test
+
       - name: Check code style
         run: |
           bundle exec rubocop
@@ -19,7 +27,5 @@ jobs:
           bundle exec rspec
 
       - name: Check bundle audit
-        env:
-          RAILS_ENV: test
         run: |
           bundle exec bundler-audit
