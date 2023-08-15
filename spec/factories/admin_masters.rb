@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: admin_masters
@@ -10,7 +8,9 @@
 #  admin_id   :uuid
 #  master_id  :uuid
 #
-class AdminMaster < ApplicationRecord
-  belongs_to :admin, optional: true
-  belongs_to :master, optional: true
-end
+FactoryBot.define do
+    factory :admin_master do
+      admin
+      master
+    end
+  end

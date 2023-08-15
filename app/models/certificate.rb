@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: certificates
@@ -7,8 +9,8 @@
 #  photo_link :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  master_id  :uuid
 #
 class Certificate < ApplicationRecord
-    belongs_to :master
-
+  belongs_to :master
 end

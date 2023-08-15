@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MastersController < ApplicationController
-  before_action :set_master, only: %i[ show edit update destroy ]
+  before_action :set_master, only: %i[show edit update destroy]
 
   # GET /masters or /masters.json
   def index
@@ -7,8 +9,7 @@ class MastersController < ApplicationController
   end
 
   # GET /masters/1 or /masters/1.json
-  def show
-  end
+  def show; end
 
   # GET /masters/new
   def new
@@ -16,8 +17,7 @@ class MastersController < ApplicationController
   end
 
   # GET /masters/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /masters or /masters.json
   def create
@@ -58,13 +58,14 @@ class MastersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_master
-      @master = Master.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def master_params
-      params.require(:master).permit(:id, :about_me, :certificate_id, :article_id, :contact_id, :review_id, :service_id, :discount_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_master
+    @master = Master.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def master_params
+    params.require(:master).permit(:id, :about_me, :certificate_id, :article_id, :contact_id, :review_id, :service_id, :discount_id)
+  end
 end

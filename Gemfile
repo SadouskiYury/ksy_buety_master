@@ -57,12 +57,12 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
 
-  gem 'yard', '~> 0.8.7.6'
   gem "rspec-rails", "~> 6.0.0"
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
+  gem "yard", "> 0.8.7.6"
 end
 
 group :development do
@@ -81,5 +81,8 @@ group :test do
   gem "bundle-audit"
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 5.0"
   gem "webdrivers"
+  gem "factory_bot_rails"
+  gem "faker"
 end

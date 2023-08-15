@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admins
 #
 #  id                     :uuid             not null, primary key
-#  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
+#  email                  :string           not null
+#  encrypted_password     :string           not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -17,9 +19,9 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :admin_master
+  has_many  :admin_masters, dependent: :destroy
+  has_many  :masters, through: :admin_masters
 
   validates :email, uniqueness: true
-  validates :email, presence: true
-  validates :encrypted_password, presence: true
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/, message: "is not a valid email" }
 end

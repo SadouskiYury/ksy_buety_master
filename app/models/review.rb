@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: reviews
@@ -7,8 +9,8 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  master_id   :uuid
 #
 class Review < ApplicationRecord
   belongs_to :master
-
 end
