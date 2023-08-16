@@ -14,11 +14,10 @@
 #
 class Contact < ApplicationRecord
   belongs_to :master
-
-  # rubocop:disable Rails/UniqueValidationWithoutIndex
+  #  rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :phone_number, presence: true, uniqueness: { case_sensitive: false }
-  # rubocop:enable Rails/UniqueValidationWithoutIndex
+  #  rubocop:enable Rails/UniqueValidationWithoutIndex
   validates :phone_number,
             format: { with: /\A[+]?\d{1,3}[-.\s]?\d{1,14}[-.\s]?\d{1,14}[-.\s]?\d{1,14}[-.\s]?\d{1,14}\z/,
-                      message: :invalid_phone_number }
+                      message: "is not a valid phone number" }
 end

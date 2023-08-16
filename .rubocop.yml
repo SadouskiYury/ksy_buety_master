@@ -16,6 +16,9 @@ Layout/LineLength:
 Style/Documentation:
   Enabled: false
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
