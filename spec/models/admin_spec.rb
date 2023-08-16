@@ -28,13 +28,13 @@ RSpec.describe Admin do
       expect(admin).to validate_presence_of(:password)
     end
 
-    it "validate prsence password" do
+    it "validate length of password" do
       expect(admin).to validate_length_of(:password)
         .is_at_least(3).with_short_message("is too short (minimum is 3 characters)")
         .is_at_most(20).with_long_message("is too long (maximum is 20 characters)")
     end
 
-    context "validate email" do
+    context "when validate email" do
       it do
         expect(admin).to allow_values("john@gmail.com", "jane@example.com")
           .for(:email)

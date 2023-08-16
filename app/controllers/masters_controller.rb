@@ -25,7 +25,7 @@ class MastersController < ApplicationController
 
     respond_to do |format|
       if @master.save
-        format.html { redirect_to master_url(@master), notice: "Master was successfully created." }
+        format.html { redirect_to master_url(@master), notice: I18n.t("controllers.masters.notice.create") }
         format.json { render :show, status: :created, location: @master }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class MastersController < ApplicationController
   def update
     respond_to do |format|
       if @master.update(master_params)
-        format.html { redirect_to master_url(@master), notice: "Master was successfully updated." }
+        format.html { redirect_to master_url(@master), notice: I18n.t("controllers.masters.notice.update") }
         format.json { render :show, status: :ok, location: @master }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class MastersController < ApplicationController
     @master.destroy
 
     respond_to do |format|
-      format.html { redirect_to masters_url, notice: "Master was successfully destroyed." }
+      format.html { redirect_to masters_url, notice: I18n.t("controllers.masters.notice.destroy") }
       format.json { head :no_content }
     end
   end

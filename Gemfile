@@ -80,9 +80,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "bundle-audit"
   gem "capybara"
+  gem "factory_bot_rails"
+  gem "faker"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 5.0"
   gem "webdrivers"
-  gem "factory_bot_rails"
-  gem "faker"
 end

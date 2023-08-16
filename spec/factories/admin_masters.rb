@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admin_masters
@@ -9,8 +11,8 @@
 #  master_id  :uuid
 #
 FactoryBot.define do
-    factory :admin_master do
-      admin
-      master
-    end
+  factory :admin_master do
+    admin
+    master
   end
+end

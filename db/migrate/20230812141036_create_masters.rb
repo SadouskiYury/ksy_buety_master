@@ -3,7 +3,7 @@
 class CreateMasters < ActiveRecord::Migration[7.0]
   def change
     create_table :masters, id: :uuid do |t|
-      t.string :name, null: false
+      t.string :name, null: false, unique: true, default: "Master", index: true
       t.text :about_me
 
       t.timestamps

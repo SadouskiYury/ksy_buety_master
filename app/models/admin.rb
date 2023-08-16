@@ -23,5 +23,5 @@ class Admin < ApplicationRecord
   has_many  :masters, through: :admin_masters
 
   validates :email, uniqueness: true
-  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/, message: "is not a valid email" }
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/, message: :invalid_email }
 end

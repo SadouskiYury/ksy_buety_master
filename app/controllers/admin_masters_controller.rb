@@ -25,7 +25,7 @@ class AdminMastersController < ApplicationController
 
     respond_to do |format|
       if @admin_master.save
-        format.html { redirect_to admin_master_url(@admin_master), notice: "Admin master was successfully created." }
+        format.html { redirect_to admin_master_url(@admin_master), notice: I18n.t("controllers.admin_masters.notice.create") }
         format.json { render :show, status: :created, location: @admin_master }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class AdminMastersController < ApplicationController
   def update
     respond_to do |format|
       if @admin_master.update(admin_master_params)
-        format.html { redirect_to admin_master_url(@admin_master), notice: "Admin master was successfully updated." }
+        format.html { redirect_to admin_master_url(@admin_master), notice: I18n.t("controllers.admin_masters.notice.update") }
         format.json { render :show, status: :ok, location: @admin_master }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class AdminMastersController < ApplicationController
     @admin_master.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_masters_url, notice: "Admin master was successfully destroyed." }
+      format.html { redirect_to admin_masters_url, notice: I18n.t("controllers.admin_masters.notice.destroy") }
       format.json { head :no_content }
     end
   end

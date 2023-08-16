@@ -30,4 +30,41 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  controllers:
+    contacts:
+      notice:
+        create: "Contact was successfully created!"
+        update: "Contact was successfully updated!"
+        destroy: "Contact was successfully destroyed!"
+    admin_masters:
+      notice:
+        create: "Admin Master was successfully created!"
+        update: "Admin Master was successfully updated!"
+        destroy: "Admin Master was successfully destroyed!"
+    masters:
+      notice:
+        create: "Master was successfully created!"
+        update: "Master was successfully updated!"
+        destroy: "Master was successfully destroyed!"
+    services:
+      notice:
+        create: "Service was successfully created!"
+        update: "Service was successfully updated!"
+        destroy: "Service was successfully destroyed!"
+
+  activerecord:
+    models:
+      contact: "Contact"
+      admin_master: "Admin Master"
+      master: "Master"
+      service: "Service"
+      admin: "Admin"
+    attributes:
+      admin:
+        email:
+          invalid_email: "is not a valid email address"
+      contact:
+        phone_number:
+          invalid_phone_number: "is not a valid phone number"
+
+  
