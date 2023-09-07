@@ -19,7 +19,7 @@ RSpec.describe AdminMaster do
   let(:master) { create(:master) }
 
   describe "associations" do
-    it { expect(admin_master).to belong_to(:admin).optional }
-    it { expect(admin_master).to belong_to(:master).optional }
+    it { expect(admin_master).to belong_to(:admin) }
+    it { expect(admin_master).to belong_to(:master) }
   end
 end
