@@ -75,11 +75,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_144636) do
   end
 
   create_table "masters", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name", default: "Master", null: false
+    t.text "name", null: false
     t.text "about_me"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_masters_on_name"
+    t.index ["name"], name: "index_masters_on_name", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
