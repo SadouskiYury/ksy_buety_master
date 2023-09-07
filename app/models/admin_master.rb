@@ -11,6 +11,6 @@
 #  master_id  :uuid
 #
 class AdminMaster < ApplicationRecord
-  belongs_to :admin, optional: true
-  belongs_to :master, optional: true
+  belongs_to :admin
+  belongs_to :master
 end

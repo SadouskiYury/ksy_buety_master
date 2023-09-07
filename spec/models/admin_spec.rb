@@ -30,8 +30,8 @@ RSpec.describe Admin do
 
     it "validate length of password" do
       expect(admin).to validate_length_of(:password)
-        .is_at_least(3).with_short_message("is too short (minimum is 3 characters)")
-        .is_at_most(20).with_long_message("is too long (maximum is 20 characters)")
+        .is_at_least(6).with_short_message("is too short (minimum is 6 characters)")
+        .is_at_most(128).with_long_message("is too long (maximum is 128 characters)")
     end
 
     context "when validate email" do
