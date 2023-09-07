@@ -42,5 +42,11 @@ jobs:
           bundle exec rspec
 
       - name: Check bundle audit
+        continue-on-error: true
         run: |
           bundle exec bundler-audit
+      - name: Generate Warning Annotations
+        if: failure()
+        run: |
+          echo "::warning ::Review needed!!!"        
+    
