@@ -17,19 +17,24 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: ksy_user
+  password: ksy_password
+  port: 5432
+  host: localhost
+  # create role ksy_user with createdb login password 'ksy_password';
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: ksy_buety_master_development
+  database: beauty_master_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: ksy_buety_master
+  #username: ksy_user
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +62,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ksy_buety_master_test
+  database: beauty_master_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +86,6 @@ test:
 #
 production:
   <<: *default
-  database: ksy_buety_master_production
-  username: ksy_buety_master
-  password: <%= ENV["KSY_BUETY_MASTER_DATABASE_PASSWORD"] %>
+  database: beauty_master_production
+  url: <%= ENV['PROD_DATABASE_URL'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 35 } %>
