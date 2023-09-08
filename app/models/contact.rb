@@ -6,11 +6,19 @@
 #
 #  id           :bigint           not null, primary key
 #  link         :string
-#  phone_number :string
 #  note         :string
+#  phone_number :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  master_id    :uuid
+#
+# Indexes
+#
+#  index_contacts_on_master_id  (master_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (master_id => masters.id)
 #
 class Contact < ApplicationRecord
   belongs_to :master

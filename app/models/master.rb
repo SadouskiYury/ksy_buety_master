@@ -5,10 +5,14 @@
 # Table name: masters
 #
 #  id         :uuid             not null, primary key
-#  name       :text             not null
 #  about_me   :text
+#  name       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_masters_on_name  (name) UNIQUE
 #
 class Master < ApplicationRecord
   has_many :certificates, dependent: :destroy

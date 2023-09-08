@@ -10,6 +10,16 @@
 #  admin_id   :uuid
 #  master_id  :uuid
 #
+# Indexes
+#
+#  index_admin_masters_on_admin_id   (admin_id)
+#  index_admin_masters_on_master_id  (master_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (admin_id => admins.id)
+#  fk_rails_...  (master_id => masters.id)
+#
 require "rails_helper"
 
 RSpec.describe AdminMaster do
