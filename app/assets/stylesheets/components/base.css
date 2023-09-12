@@ -1,5 +1,5 @@
 body {
-  @apply bg-slate-100 leading-relaxed;
+  @apply font-ubuntu bg-slate-100 leading-relaxed;
 }
 
 h1 {
