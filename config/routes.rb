@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :articles
   resources :admin_masters
   resources :masters
   resources :contacts

@@ -19,6 +19,7 @@
 #  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class Admin < ApplicationRecord
+  EMAIL_REGEXP = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,5 +29,6 @@ class Admin < ApplicationRecord
   has_many  :masters, through: :admin_masters
 
   validates :email, uniqueness: true
-  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/, message: "is not a valid email" }
+  validates :email, format: { with: EMAIL_REGEXP, message: "is not a valid email" }
+  normalizes :email, with: ->(email) { email.downcase.strip }
 end
