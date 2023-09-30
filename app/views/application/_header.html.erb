@@ -1,0 +1,88 @@
+<nav class="fixed top-0 flex w-full flex-wrap items-center justify-between px-2 py-3 bg-lilac mb-3">
+  <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+    <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+     
+        <%= image_tag("logo.png", :size => "100", :crop => :fill) %> 
+
+      <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button">
+        <span class="block relative w-6 h-px rounded-sm bg-white"></span>
+        <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
+        <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
+      </button>
+    </div>
+    <div class="flex-grow items-center" id="example-navbar-warning">
+      <ul class="flex flex-col lg:flex-row items-center justify-center list-none ml-auto">
+          <li class="nav-item justify-center ">
+           <a href="<%= root_path %>" class="<%= nav_link_class("home") %>">
+           <i class="fa-solid fa-house px-2"></i>главная</a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= services_path %>" class="<%= nav_link_class("services") %>">
+            <i class="fa-solid fa-hand-holding-dollar px-2"></i>услуги</a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= masters_path %>" class="<%= nav_link_class("masters") %>">
+            <i class="fa-solid fa-users px-2"></i>мастера</a>
+          </li>
+          <li class="nav-item">
+             <a href="<%= reviews_path %>" class="<%= nav_link_class("reviews") %>">
+             <i class="fa-solid fa-star px-2"></i>отзывы</a>
+          </li>
+          <li class="nav-item">
+             <a href="<%= articles_path %>" class="<%= nav_link_class("articles") %>">
+             <i class="fa-brands fa-microblog px-2"></i>блог</a>
+          </li>
+          <li class="nav-item">
+             <a href="<%= contacts_path %>" class="<%= nav_link_class("contacts") %>">
+             <i class="fa-solid fa-phone px-2"></i>контакты</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<%
+=begin%>
+ <nav class="bg-[#818cf8]">
+  <div class="mx-auto px-6 md:px-12">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <a href="<%= root_path %>" class="text-white text-2xl">
+            <i class="h-8 mr-3">
+            <%= image_tag("logo_ksy.png", width: 100) %>
+            </i>
+          </a>
+        </div>
+        <div class="hidden sm:block">
+          <div class="ml-8 flex items-baseline space-x-4">
+            <a href="<%= root_path %>" class="<%= nav_link_class("home") %>">ГЛАВНАЯ</a>
+            <a href="<%= masters_path %>" class="<%= nav_link_class("masters") %>">Мастера</a>
+            <a href="<%= reviews_path %>" class="<%= nav_link_class("users") %>">Отзывы</a>
+          </div>
+        </div>
+      </div>
+      <div class="hidden sm:block">
+        <div class="ml-4 flex items-center md:ml-6">
+          <div class="relative ml-3">
+            <% if admin_signed_in? %>
+              <a href="<%= edit_admin_path %>" class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm">
+                <%= avatar(current_user) %>
+              </a>
+            <% else %>
+              <%= link_to "Вход", new_admin_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="sm:hidden">
+        <button class="<%= nav_link_class(nil) %>" onclick="toggleMenu()">
+      
+        </button>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</nav> 
+<%
+=end%>
