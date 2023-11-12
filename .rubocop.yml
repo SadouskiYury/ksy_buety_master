@@ -7,6 +7,15 @@ require:
 AllCops:
   TargetRubyVersion: 3.1.0
   NewCops: enable
+  Exclude:
+    - 'lib/tasks/**/*'
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
+    - 'script/**/*'
+    - 'vendor/**/*'
 
 Layout/LineLength:
   Max: 140
@@ -24,7 +33,6 @@ Style/StringLiterals:
 
 Metrics/BlockLength:
   Exclude:
-    - 'lib/tasks/**/*'
     - 'spec/**/*'
 
 Metrics/MethodLength:

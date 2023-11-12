@@ -1,0 +1,27 @@
+<div id="<%= dom_id admin_master %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Id:</strong>
+    <%= admin_master.id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Admin:</strong>
+    <%= admin_master.admin_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Master:</strong>
+    <%= admin_master.master_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Role:</strong>
+    <%= admin_master.role %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this admin master", admin_master, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this admin master', edit_admin_master_path(admin_master), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
